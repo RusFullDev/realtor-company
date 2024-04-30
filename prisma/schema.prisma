@@ -122,7 +122,7 @@ model OwnerRelation {
   RelationshipType   RelationshipType? @relation(fields: [relationshipTypeId], references: [id])
   relationshipTypeId Int?
 
-  @@map("owner-relation")
+  @@map("ownerRelation")
 }
 
 model Address {
@@ -177,7 +177,7 @@ model BuildingCharacter {
   Parking             Parking?           @relation(fields: [parkingId], references: [id])
   parkingId           Int?
 
-  @@map("building-character")
+  @@map("buildingCharacter")
 }
 
 model ObjectType {
@@ -186,7 +186,7 @@ model ObjectType {
   object        Object[]
   residenceType ResidenceType[]
 
-  @@map("object-type")
+  @@map("objectType")
 }
 
 model ResidenceType {
@@ -196,7 +196,7 @@ model ResidenceType {
   ObjectType   ObjectType? @relation(fields: [objectTypeId], references: [id])
   objectTypeId Int?
 
-  @@map("residence-type")
+  @@map("residenceType")
 }
 
 model ObjectCategory {
@@ -204,7 +204,7 @@ model ObjectCategory {
   name   String
   object Object[]
 
-  @@map("object-category")
+  @@map("objectCategory")
 }
 
 model ObjectStatus {
@@ -212,7 +212,7 @@ model ObjectStatus {
   name   String
   object Object[]
 
-  @@map("object-status")
+  @@map("objectStatus")
 }
 
 model Currency {
@@ -236,7 +236,7 @@ model WindowSide {
   name   String
   object Object[]
 
-  @@map("window-side")
+  @@map("windowSide")
 }
 
 model RoomType {
@@ -244,7 +244,7 @@ model RoomType {
   name   String
   object Object[]
 
-  @@map("room-type")
+  @@map("roomType")
 }
 
 model Ownership {
@@ -260,7 +260,7 @@ model ReasonDeleting {
   name          String
   ownerRelation OwnerRelation[]
 
-  @@map("reason-deleting")
+  @@map("reasonDeleting")
 }
 
 model OwnerCooperation {
@@ -268,7 +268,7 @@ model OwnerCooperation {
   name          String
   ownerRelation OwnerRelation[]
 
-  @@map("owner-cooperation")
+  @@map("ownerCooperation")
 }
 
 model RelationshipType {
@@ -276,7 +276,7 @@ model RelationshipType {
   name          String
   ownerRelation OwnerRelation[]
 
-  @@map("relationship-type")
+  @@map("relationshipType")
 }
 
 model Region {
@@ -345,7 +345,7 @@ model WallMaterial {
   name             String
   buldingCharakter BuildingCharacter[]
 
-  @@map("wall-material")
+  @@map("wallMaterial")
 }
 
 model Overlaps {
@@ -361,7 +361,7 @@ model HeatingSystem {
   name             String
   buldingCharakter BuildingCharacter[]
 
-  @@map("heating-system")
+  @@map("heatingSystem")
 }
 
 model BuildingCondition {
@@ -369,7 +369,7 @@ model BuildingCondition {
   name             String
   buldingCharakter BuildingCharacter[]
 
-  @@map("building-condition")
+  @@map("buildingCondition")
 }
 
 model BuildingSeria {
@@ -377,7 +377,7 @@ model BuildingSeria {
   name             String
   buldingCharakter BuildingCharacter[]
 
-  @@map("building-seria")
+  @@map("buildingSeria")
 }
 
 model WaterSupply {
@@ -385,7 +385,7 @@ model WaterSupply {
   name             String
   buldingCharakter BuildingCharacter[]
 
-  @@map("water-supply")
+  @@map("waterSupply")
 }
 
 model Parking {

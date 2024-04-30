@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
-import { CreateAuthDto, UpdateAuthDto } from './dto';
+import { CreateAuthDto, LoginAuthDto, UpdateAuthDto } from './dto';
 import * as bcrypt from 'bcryptjs'
 import { Response } from 'express';
 import { Admin } from '@prisma/client';
@@ -48,7 +48,7 @@ async updateRefreshToken(admin:Admin,refreshToken:string){
     }
   })
 }
-/************************************************************************************* */
+/****************************************signUp********************************************* */
 async signUp(createAuthDto:CreateAuthDto,res:Response){
   const admin = await this.prismaService.admin.findUnique({
     where:
@@ -64,8 +64,7 @@ data:{
   phone:createAuthDto.phone,
   email:createAuthDto.email,
   hashedPassword
-}
-    })
+} })
 
     const tokens = await this.getTokens(newAdmin)
   await this.updateRefreshToken(newAdmin,tokens.refresh_token)
@@ -77,9 +76,31 @@ data:{
     return tokens
 }
 
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
-  }
+/*********************************************signIn*************************************************/
+async singIn(loginAuthDto:LoginAuthDto,res:Response){
+  const admin = await this.prismaService.admin.findUnique({
+    where:
+      {email:loginAuthDto.email}
+    })
+    if(!admin){
+      throw new BadRequestException('Admin not found ')
+    }
+    const passwordMuch = await bcrypt.compare(loginAuthDto.password,admin.hashedPassword)
+    if(!passwordMuch){
+      throw new BadRequestException("Password not much")
+    }
+    const tokens = await this.getTokens(admin)
+    await this.updateRefreshToken(admin,tokens.refresh_token)
+    res.cookie('refresh_token',tokens.refresh_token,{
+      maxAge:Number(process.env.COOKIE_TIME),
+      httpOnly:true
+    })
+    return tokens
+}
+/*************************************************logout *******************************************/
+async logout(){
+  
+}
 
   findAll() {
     return `This action returns all auth`;
