@@ -289,13 +289,14 @@ model Region {
 }
 
 model District {
-  id        Int       @id @default(autoincrement())
-  name      String
-  region_id Int
-  address   Address[]
-  Region    Region?   @relation(fields: [regionId], references: [id])
-  regionId  Int?
-  area      Area[]
+  id       Int       @id @default(autoincrement())
+  name     String
+  
+  address  Address[]
+  Region   Region?   @relation(fields: [regionId], references: [id])
+  regionId Int?
+
+  area     Area[]
 
   @@map("district")
 }
