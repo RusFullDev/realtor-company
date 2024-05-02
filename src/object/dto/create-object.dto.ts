@@ -35,7 +35,7 @@ export class CreateObjectDto {
   readonly price_type:string 
 
   @IsBoolean()    
-  readonly is_apartmen:boolean  
+  readonly is_apartment:boolean  
 
   @IsBoolean()     
   readonly is_luxury:boolean 
@@ -82,7 +82,7 @@ export class CreateObjectDto {
   @IsString()      
   readonly video:string   
 
-  // @IsNumber()     
+  @IsNumber()     
   readonly realtorId:number
 
   @IsNumber()     

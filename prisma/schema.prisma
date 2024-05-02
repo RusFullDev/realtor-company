@@ -76,10 +76,10 @@ model Object {
   currencyId          Int?
   Renovation          Renovation?        @relation(fields: [renovationId], references: [id])
   renovationId        Int?
-  WindowSide          WindowSide?        @relation(fields: [windowSideId], references: [id])
-  windowSideId        Int?
   RoomType            RoomType?          @relation(fields: [roomTypeId], references: [id])
   roomTypeId          Int?
+  WindowSide          WindowSide?        @relation(fields: [windowSideId], references: [id])
+  windowSideId        Int?
 
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt

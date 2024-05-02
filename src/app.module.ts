@@ -31,10 +31,11 @@ import { ObjectModule } from './object/object.module';
 import { OwnerRelationModule } from './owner-relation/owner-relation.module';
 import { AddressModule } from './address/address.module';
 import { BuildingCharacterModule } from './building-character/building-character.module';
+import { AdminModule } from './admin/admin.module';
 
 
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal:true,envFilePath:'.env'}), PrismaModule, AuthModule, ObjectTypeModule, ResidenceTypeModule, ObjectCategoryModule, ObjectStatusModule, CurrencyModule, RenovationModule, WindowSideModule, RoomTypeModule, OwnershipModule, ReasonDeletingModule, OwnerCooperationModule, RelationshipTypeModule, RegionModule, DistrictModule, AreaModule, MahallaModule, StreetModule, MetroModule, WallMaterialModule, OverlapsModule, HeatingSystemModule, BuildingConditionalModule, BuildingSeriaModule, WaterSupplyModule, ParkingModule, ObjectModule, OwnerRelationModule, AddressModule, BuildingCharacterModule],
+  imports: [ConfigModule.forRoot({isGlobal:true,envFilePath:'.env'}), PrismaModule, AuthModule, ObjectTypeModule, ResidenceTypeModule, ObjectCategoryModule, ObjectStatusModule, CurrencyModule, RenovationModule, WindowSideModule, RoomTypeModule, OwnershipModule, ReasonDeletingModule, OwnerCooperationModule, RelationshipTypeModule, RegionModule, DistrictModule, AreaModule, MahallaModule, StreetModule, MetroModule, WallMaterialModule, OverlapsModule, HeatingSystemModule, BuildingConditionalModule, BuildingSeriaModule, WaterSupplyModule, ParkingModule, ObjectModule, OwnerRelationModule, AddressModule, BuildingCharacterModule, AdminModule],
   controllers: [],
   providers: [],
 })

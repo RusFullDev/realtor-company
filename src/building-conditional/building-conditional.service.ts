@@ -6,6 +6,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class BuildingConditionalService {
   constructor(private readonly prismaService:PrismaService){}
+  
   create(createBuildingConditionalDto: CreateBuildingConditionalDto) {
     return this.prismaService.buildingCondition.create({data:createBuildingConditionalDto})
   }

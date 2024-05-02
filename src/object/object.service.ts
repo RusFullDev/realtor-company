@@ -10,19 +10,22 @@ export class ObjectService {
   
   create(createObjectDto:CreateObjectDto) 
   {
-    return this.prismaService.object.create({data:createObjectDto})
+    return this.prismaService.object.create({
+
+      data:createObjectDto
+    })
   }
 
   findAll() {
-    return this.prismaService.object.findMany(
-      {
-        include:{
-      Address:true,BuildingCharacter:true,Currency:true,ObjectCategory:true,
-      ObjectStatus:true,ObjectType:true,OwnerRelation:true,Realtor:true,
-      Renovation:true,ResidenceType:true,RoomType:true,WindowSide:true
+      return this.prismaService.object.findMany(
+        {
+          include:{
+        Address:true,BuildingCharacter:true,Currency:true,ObjectCategory:true,
+        ObjectStatus:true,ObjectType:true,OwnerRelation:true,Realtor:true,
+        Renovation:true,ResidenceType:true,RoomType:true,WindowSide:true
+      }
     }
-  }
-  )
+    )
   }
 
   findOne(id: number) {

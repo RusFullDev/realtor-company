@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
 import { CreateAuthDto, LoginAuthDto, UpdateAuthDto } from './dto';
@@ -98,9 +98,20 @@ async singIn(loginAuthDto:LoginAuthDto,res:Response){
     return tokens
 }
 /*************************************************logout *******************************************/
-async logout(){
-  
+async logout(refreshToken:string,res:Response){
+  const adminData = await this.jwtService.verify(refreshToken,{secret:process.env.REFRESH_TOKEN_KEY})
+
+  if(!adminData){
+    throw new ForbiddenException('Admin not verified')
+  }
 }
+
+
+
+
+
+
+
 
   findAll() {
     return `This action returns all auth`;
