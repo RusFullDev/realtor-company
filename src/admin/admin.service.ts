@@ -1,15 +1,34 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
+import * as bcrypt from 'bcryptjs'
 
 @Injectable()
 export class AdminService {
   constructor( private readonly prismaService:PrismaService){}
 
-  create(createAdminDto: CreateAdminDto) {
-    return this.prismaService.admin
+  async create(createAdminDto: CreateAdminDto) {
+    const admin = await this.prismaService.admin.findUnique({
+      where:
+        {email:createAdminDto.email}
+      })
+      if(admin){
+        throw new BadRequestException('Admin already exists!')
+      }
+const hashedPassword = await bcrypt.hash(createAdminDto.password,7)
+
+const newAdmin = await this.prismaService.admin.create({
+  data:{
+    fullname:createAdminDto.fullname,
+        email:createAdminDto.email,
+        phone:createAdminDto.phone,
+        hashedPassword }
+})
+
+return newAdmin
   }
+
 
   findAll() {
     return this.prismaService.admin.findMany()

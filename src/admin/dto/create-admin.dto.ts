@@ -9,6 +9,4 @@ export class CreateAdminDto {
   email:string
   @IsString()
   password:string
-  @IsString()
-  confirm_password:string
 }

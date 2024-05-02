@@ -10,4 +10,8 @@ export class LoginAuthDto {
   @IsNotEmpty()
   readonly password:string
 
+  @IsString()
+  @IsNotEmpty()
+  readonly confirm_password:string
+
 }

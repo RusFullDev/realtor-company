@@ -34,8 +34,17 @@ import { BuildingCharacterModule } from './building-character/building-character
 import { AdminModule } from './admin/admin.module';
 
 
+
 @Module({
-  imports: [ConfigModule.forRoot({isGlobal:true,envFilePath:'.env'}), PrismaModule, AuthModule, ObjectTypeModule, ResidenceTypeModule, ObjectCategoryModule, ObjectStatusModule, CurrencyModule, RenovationModule, WindowSideModule, RoomTypeModule, OwnershipModule, ReasonDeletingModule, OwnerCooperationModule, RelationshipTypeModule, RegionModule, DistrictModule, AreaModule, MahallaModule, StreetModule, MetroModule, WallMaterialModule, OverlapsModule, HeatingSystemModule, BuildingConditionalModule, BuildingSeriaModule, WaterSupplyModule, ParkingModule, ObjectModule, OwnerRelationModule, AddressModule, BuildingCharacterModule, AdminModule],
+  imports: [ConfigModule.forRoot({isGlobal:true,envFilePath:'.env'}),
+   PrismaModule, AuthModule,   ObjectTypeModule, ResidenceTypeModule, ObjectCategoryModule,
+    ObjectStatusModule, CurrencyModule, RenovationModule, WindowSideModule, RoomTypeModule,
+     OwnershipModule, ReasonDeletingModule, OwnerCooperationModule, RelationshipTypeModule, 
+     RegionModule, DistrictModule, AreaModule, MahallaModule, StreetModule, MetroModule, 
+     WallMaterialModule, OverlapsModule, HeatingSystemModule, 
+   BuildingConditionalModule, BuildingSeriaModule, WaterSupplyModule, ParkingModule, ObjectModule, 
+   OwnerRelationModule, AddressModule, BuildingCharacterModule, AdminModule
+  ],
   controllers: [],
   providers: [],
 })
