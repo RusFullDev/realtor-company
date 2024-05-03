@@ -32,6 +32,8 @@ import { OwnerRelationModule } from './owner-relation/owner-relation.module';
 import { AddressModule } from './address/address.module';
 import { BuildingCharacterModule } from './building-character/building-character.module';
 import { AdminModule } from './admin/admin.module';
+import { RealtorModule } from './realtor/realtor.module';
+
 
 
 
@@ -43,7 +45,7 @@ import { AdminModule } from './admin/admin.module';
      RegionModule, DistrictModule, AreaModule, MahallaModule, StreetModule, MetroModule, 
      WallMaterialModule, OverlapsModule, HeatingSystemModule, 
    BuildingConditionalModule, BuildingSeriaModule, WaterSupplyModule, ParkingModule, ObjectModule, 
-   OwnerRelationModule, AddressModule, BuildingCharacterModule, AdminModule
+   OwnerRelationModule, AddressModule, BuildingCharacterModule, AdminModule, RealtorModule, 
   ],
   controllers: [],
   providers: [],

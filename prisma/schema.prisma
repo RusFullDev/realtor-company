@@ -96,7 +96,6 @@ model Realtor {
   photo           String
   login           String
   password        String
-  figma_id        Int
   object          Object[]
 
   @@map("realtor")
